@@ -30,9 +30,11 @@ enum OrderStatus{
 
 @Component
 @Flow(OrderStatus.class)
-@Transition(event = "PLACE", from="INITIAL", to = "PLACED")
-@Transition(event = "PAY", from="PLACED", to = "PAYED")
-@Transition(event = "SEND", from="PAYED", to = "SENT")
+@Transitions({
+	@Transition(event = "PLACE", from="INITIAL", to = "PLACED"),
+	@Transition(event = "PAY", from="PLACED", to = "PAYED"),
+	@Transition(event = "SEND", from="PAYED", to = "SENT")
+})
 public class OrderFlow extends AbstractBeanFlow<Order> {
 	@Guard("PLACE")
 	private boolean checkParams(Order order, @EventParam("products") String[] products, @EventParam("customer") String customer){
