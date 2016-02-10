@@ -8,7 +8,7 @@ stateless resource with it's associated workflow.
 Clone the repo and run
 
 ```
-gradle bootRun
+gradlew bootRun
 ```
 
 Ofcourse you need gradle in place to do this :-).
